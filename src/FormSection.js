@@ -1,16 +1,19 @@
-import React, { createElement, Component, PropTypes } from 'react'
+import React, {createElement, Component} from 'react'
+import PropTypes from 'prop-types'
 import prefixName from './util/prefixName'
 
 class FormSection extends Component {
   constructor(props, context) {
     super(props, context)
     if (!context._reduxForm) {
-      throw new Error('FormSection must be inside a component decorated with reduxForm()')
+      throw new Error(
+        'FormSection must be inside a component decorated with reduxForm()'
+      )
     }
   }
 
   getChildContext() {
-    const { context, props: { name } } = this
+    const {context, props: {name}} = this
     return {
       _reduxForm: {
         ...context._reduxForm,
@@ -40,7 +43,7 @@ class FormSection extends Component {
 
 FormSection.propTypes = {
   name: PropTypes.string.isRequired,
-  component: PropTypes.oneOfType([ PropTypes.func, PropTypes.string ])
+  component: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 }
 
 FormSection.defaultProps = {

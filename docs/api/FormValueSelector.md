@@ -19,7 +19,7 @@ import { formValueSelector } from 'redux-form';  // ES6
 ### `form : String` [required]
 
 > The name of the form you are connecting to. Must be the same as the `form` config value you 
-gave to [`reduxForm()`](https://redux-form.com/6.6.1/docs/api/ReduxForm.md/).
+gave to [`reduxForm()`](https://redux-form.com/6.7.0/docs/api/ReduxForm.md/).
 
 ### `getFormState : Function` [optional]
 
@@ -67,21 +67,7 @@ connect(
 )(MyFormComponent)
 ```
 
-### 2. Select multiple fields as a group
-
-```javascript
-connect(
-  state => {
-    const { first, second } = selector(state, 'first', 'second')
-    // do some calculation
-    return {
-      sum: first + second
-    }
-  }
-)(MyFormComponent)
-```
-
-### 3. Select multiple fields as a group into a grouped prop
+### 2. Select multiple fields as a group into a grouped prop
 
 ```javascript
 connect(
@@ -91,7 +77,7 @@ connect(
 )(MyFormComponent)
 ```
 
-### 4. Use the selector as `mapStateToProps`
+### 3. Use the selector as `mapStateToProps`
 
 If you don't need any other props from the state, the selector itself works just fine as 
 `mapStateToProps`.
@@ -105,4 +91,4 @@ connect(
 ## Example
 
 See the
-[Selecting Form Values](https://redux-form.com/6.6.1/examples/selectingFormValues/) example.
+[Selecting Form Values](https://redux-form.com/6.7.0/examples/selectingFormValues/) example.

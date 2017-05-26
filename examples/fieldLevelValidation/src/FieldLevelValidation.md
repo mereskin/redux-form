@@ -1,13 +1,14 @@
 # Field-Level Validation Example
 
 As well as allowing you to provide a validation function to validate all the values in your form
-at once, see [Synchronous Validation Example](http://redux-form.com/6.6.1/examples/syncValidation/),
+at once, see [Synchronous Validation Example](http://redux-form.com/6.7.0/examples/syncValidation/),
 you may also provide individual value validation functions for each `Field` or `FieldArray`.
 
 The parameters to the validation function are:
 
 * `value` - The current value of the field
 * `allValues` - The values of the entire form
+* `props` - Any props passed to the form
 
 If the `value` is valid, the validation function should return `undefined`.
 

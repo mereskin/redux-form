@@ -6,6 +6,7 @@ import deleteIn from './deleteIn'
 import keys from './keys'
 
 const structure = {
+  allowsArrayErrors: true,
   empty: {},
   emptyList: [],
   getIn,
@@ -14,7 +15,7 @@ const structure = {
   deleteIn,
   fromJS: value => value,
   keys,
-  size: array => array ? array.length : 0,
+  size: array => (array ? array.length : 0),
   splice,
   toJS: value => value
 }

@@ -1,12 +1,10 @@
-import { List, Map } from 'immutable'
-import { toPath } from 'lodash'
+import {List, Map} from 'immutable'
+import {toPath} from 'lodash'
 
 const arrayPattern = /\[(\d+)\]/
 
 const undefinedArrayMerge = (previous, next) =>
-  next !== undefined
-    ? next
-    : previous
+  next !== undefined ? next : previous
 
 const mergeLists = (original, value) =>
   original && List.isList(original)
@@ -37,9 +35,9 @@ export default function setIn(state, field, value) {
 
       const arr = []
       arr[nextPart] = new Map()
-      mutable = mutable.updateIn(
-        path.slice(0, pathIndex + 1),
-        value => mergeLists(value, new List(arr)))
+      mutable = mutable.updateIn(path.slice(0, pathIndex + 1), value =>
+        mergeLists(value, new List(arr))
+      )
     }
 
     return mutable.setIn(path, value)

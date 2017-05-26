@@ -1,5 +1,5 @@
 const processProps = (type, props, _value) => {
-  const { value } = props
+  const {value} = props
   if (type === 'checkbox') {
     return {
       ...props,
@@ -28,7 +28,9 @@ const processProps = (type, props, _value) => {
   return props
 }
 
-const createFieldProps = ({ getIn, toJS }, name,
+const createFieldProps = (
+  {getIn, toJS},
+  name,
   {
     asyncError,
     asyncValidating,
@@ -41,7 +43,8 @@ const createFieldProps = ({ getIn, toJS }, name,
     onFocus,
     form,
     format,
-    parse,  // eslint-disable-line no-unused-vars
+    initial,
+    parse, // eslint-disable-line no-unused-vars
     pristine,
     props,
     state,
@@ -50,12 +53,13 @@ const createFieldProps = ({ getIn, toJS }, name,
     submitting,
     syncError,
     syncWarning,
-    validate,  // eslint-disable-line no-unused-vars
+    validate, // eslint-disable-line no-unused-vars
     value,
     _value,
-    warn,  // eslint-disable-line no-unused-vars
+    warn, // eslint-disable-line no-unused-vars
     ...custom
-  }) => {
+  }
+) => {
   const error = syncError || asyncError || submitError
   const warning = syncWarning
 
@@ -70,15 +74,19 @@ const createFieldProps = ({ getIn, toJS }, name,
   const formattedFieldValue = formatFieldValue(value, format)
 
   return {
-    input: processProps(custom.type, {
-      name,
-      onBlur,
-      onChange,
-      onDragStart,
-      onDrop,
-      onFocus,
-      value: formattedFieldValue
-    }, _value),
+    input: processProps(
+      custom.type,
+      {
+        name,
+        onBlur,
+        onChange,
+        onDragStart,
+        onDrop,
+        onFocus,
+        value: formattedFieldValue
+      },
+      _value
+    ),
     meta: {
       ...toJS(state),
       active: !!(state && getIn(state, 'active')),
@@ -88,6 +96,7 @@ const createFieldProps = ({ getIn, toJS }, name,
       dispatch,
       error,
       form,
+      initial,
       warning,
       invalid: !!error,
       pristine,
@@ -97,7 +106,7 @@ const createFieldProps = ({ getIn, toJS }, name,
       valid: !error,
       visited: !!(state && getIn(state, 'visited'))
     },
-    custom: { ...custom, ...props }
+    custom: {...custom, ...props}
   }
 }
 

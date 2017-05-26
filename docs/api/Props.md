@@ -4,7 +4,7 @@
 
 > The `props` listed on this page are the `props` that `redux-form` generates to give
 to your decorated form component. The `props` that _you pass into your wrapped component_ are
-listed [here](https://redux-form.com/6.6.1/docs/api/ReduxForm.md/).
+listed [here](https://redux-form.com/6.7.0/docs/api/ReduxForm.md/).
 
 > If you are a strict `PropTypes` completionist, `redux-form` exports all of these
 [`propTypes`](https://github.com/erikras/redux-form/blob/master/src/propTypes.js),
@@ -181,6 +181,10 @@ that as if it were the error for a field called `_error`, and it will be given a
 > Initializes the form data to the given values. All `dirty` and `pristine` state will be
 determined by comparing the current data with these initialized values.
 This is a bound action creator, so it returns nothing.
+
+### `initialized : boolean`
+
+> `true` the form has been initialized with initial values, `false` otherwise.
 
 #### `initialValues : Object`
 

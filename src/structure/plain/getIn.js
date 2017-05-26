@@ -1,4 +1,4 @@
-import { toPath } from 'lodash'
+import {toPath} from 'lodash'
 
 const getIn = (state, field) => {
   if (!state) {
@@ -10,7 +10,7 @@ const getIn = (state, field) => {
   if (!length) {
     return undefined
   }
-  
+
   let result = state
   for (let i = 0; i < length && !!result; ++i) {
     result = result[path[i]]

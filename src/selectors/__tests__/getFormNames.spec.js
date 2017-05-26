@@ -8,7 +8,7 @@ import addExpectations from '../../__tests__/addExpectations'
 const describeGetFormNames = (name, structure, expect) => {
   const getFormNames = createGetFormNames(structure)
 
-  const { fromJS, getIn } = structure
+  const {fromJS, getIn} = structure
 
   describe(name, () => {
     it('should return a function', () => {
@@ -16,44 +16,60 @@ const describeGetFormNames = (name, structure, expect) => {
     })
 
     it('should get the form names from state', () => {
-      expect(getFormNames()(fromJS({
-        form: {
-          foo: {
-            values: {
-              dog: 'Snoopy',
-              cat: 'Garfield'
+      expect(
+        getFormNames()(
+          fromJS({
+            form: {
+              foo: {
+                values: {
+                  dog: 'Snoopy',
+                  cat: 'Garfield'
+                }
+              },
+              bar: {
+                values: {
+                  dog: 'Fido',
+                  cat: 'Whiskers'
+                }
+              }
             }
-          },
-          bar: {
-            values: {
-              dog: 'Fido',
-              cat: 'Whiskers'
-            }
-          }
-        }
-      }))).toEqualMap([ 'foo', 'bar' ])
+          })
+        )
+      ).toEqualMap(['foo', 'bar'])
     })
 
     it('should use getFormState if provided', () => {
-      expect(getFormNames(state => getIn(state, 'someOtherSlice'))(fromJS({
-        someOtherSlice: {
-          foo: {
-            values: {
-              dog: 'Snoopy',
-              cat: 'Garfield'
+      expect(
+        getFormNames(state => getIn(state, 'someOtherSlice'))(
+          fromJS({
+            someOtherSlice: {
+              foo: {
+                values: {
+                  dog: 'Snoopy',
+                  cat: 'Garfield'
+                }
+              },
+              bar: {
+                values: {
+                  dog: 'Fido',
+                  cat: 'Whiskers'
+                }
+              }
             }
-          },
-          bar: {
-            values: {
-              dog: 'Fido',
-              cat: 'Whiskers'
-            }
-          }
-        }
-      }))).toEqualMap([ 'foo', 'bar' ])
+          })
+        )
+      ).toEqualMap(['foo', 'bar'])
     })
   })
 }
 
-describeGetFormNames('getFormNames.plain', plain, addExpectations(plainExpectations))
-describeGetFormNames('getFormNames.immutable', immutable, addExpectations(immutableExpectations))
+describeGetFormNames(
+  'getFormNames.plain',
+  plain,
+  addExpectations(plainExpectations)
+)
+describeGetFormNames(
+  'getFormNames.immutable',
+  immutable,
+  addExpectations(immutableExpectations)
+)

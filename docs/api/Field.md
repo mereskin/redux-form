@@ -33,7 +33,7 @@ A string path, in dot-and-bracket notation, corresponding to a value in the form
 be as simple as `'firstName'` or as complicated as
 `contact.billing.address[2].phones[1].areaCode`. See the [Usage](#usage) section below for details.
 
-Numeric field names, e.g. `name="42"` or `name="foo.5.email`, are not supported, as they can
+Numeric field names, e.g. `name="42"` or `name="foo.5.email"`, are not supported, as they can
 be confused for array indexes.
 
 #### `component : Component|Function|String` [required]
@@ -115,7 +115,7 @@ passing them into `props`.
 #### `parse : (value, name) => parsedValue` [optional]
 
 Parses the value given from the field input component to the type that you want stored in the 
-Redux store. Common use cases are to parse currencies into `Number`s into currencies or 
+Redux store. Common use cases are to parse currencies into `Number`s or 
 localized date formats into `Date`s.
 
 `parse` is called with the field `value` and `name` as arguments and should return the new
@@ -333,6 +333,10 @@ tracking for you.
 #### `meta.form : String`
 
 > The name of the `form`. Could be useful if you want to manually dispatch actions.
+
+#### `meta.initial : any`
+
+> The initial value of the field.
 
 #### `meta.invalid : boolean`
 

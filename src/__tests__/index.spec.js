@@ -16,6 +16,9 @@ import {
   autofill,
   blur,
   change,
+  clearSubmitErrors,
+  defaultShouldAsyncValidate,
+  defaultShouldValidate,
   destroy,
   Field,
   Fields,
@@ -28,6 +31,7 @@ import {
   getFormValues,
   getFormInitialValues,
   getFormSyncErrors,
+  getFormMeta,
   getFormAsyncErrors,
   getFormSyncWarnings,
   getFormSubmitErrors,
@@ -101,6 +105,15 @@ describe('index', () => {
   it('should export change', () => {
     expect(change).toExist().toBeA('function')
   })
+  it('should export clearSubmitErrors', () => {
+    expect(clearSubmitErrors).toExist().toBeA('function')
+  })
+  it('should export defaultShouldAsyncValidate', () => {
+    expect(defaultShouldAsyncValidate).toExist().toBeA('function')
+  })
+  it('should export defaultShouldValidate', () => {
+    expect(defaultShouldValidate).toExist().toBeA('function')
+  })
   it('should export destroy', () => {
     expect(destroy).toExist().toBeA('function')
   })
@@ -136,6 +149,9 @@ describe('index', () => {
   })
   it('should export getFormSyncErrors', () => {
     expect(getFormSyncErrors).toExist().toBeA('function')
+  })
+  it('should export getFormMeta', () => {
+    expect(getFormMeta).toExist().toBeA('function')
   })
   it('should export getFormAsyncErrors', () => {
     expect(getFormAsyncErrors).toExist().toBeA('function')
